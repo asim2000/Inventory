@@ -1,0 +1,90 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Create Product</h4>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <mat-form-field class="example-full-width">
+                                <input [(ngModel)]="product.barkod" name="barkod" matInput placeholder="Barkod number"/>
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                <input [(ngModel)]="product.name" name="name" matInput placeholder="Product name"/>
+                              </mat-form-field>
+                              <mat-form-field>
+                                  <mat-select name="category" [(ngModel)]="product.categoryId" placeholder="category">
+                                     <mat-option [value]="category.id" *ngFor="let category of categories">
+                                        {{category.name}}
+                                     </mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                <input [(ngModel)]="product.quantity" name="quantity" matInput placeholder="Quantity" type="number"/>
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                <input [(ngModel)]="product.purchasePrice" name="purchasePrice" matInput placeholder="Purchase price" type="number"/>
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                <input [(ngModel)]="product.salePrice" name="salePrice" matInput placeholder="Sale price" type="number"/>
+                              </mat-form-field>
+ 
+
+                            <button mat-raised-button (click)="createProduct()" class="btn btn-danger pull-right">Create Product</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Add to exist product</h4>
+                  </div>
+                  <div class="card-body">
+                      <form>
+                          <mat-form-field class="example-full-width">
+                              <input matInput #barkod name="barkod" (keyup)="getProduct(barkod.value)" [(ngModel)]="currentProduct.barkod" placeholder="Barkod number">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="name" [(ngModel)]="currentProduct.name" placeholder="Product name">
+                            </mat-form-field>
+                            <mat-form-field>
+                              <mat-select name="category" [(ngModel)]="currentProduct.categoryId" placeholder="category">
+                                <mat-option [value]="category.id" *ngFor="let category of categories">
+                                   {{category.name}}
+                                </mat-option>
+                             </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                              <input matInput #quantity name="quantity" placeholder="Quantity" type="number">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="purchasePrice" [(ngModel)]="currentProduct.purchasePrice" placeholder="Purchase price" type="number">
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                              <input matInput name="salePrice" [(ngModel)]="currentProduct.salePrice" placeholder="Sale price" type="number">
+                            </mat-form-field>
+
+
+                          <div class="row">
+                            <div class="col-4">
+                              <mat-form-field class="example-full-width">
+                                <input matInput name="currentQuantity" [(ngModel)]="currentProduct.quantity" placeholder="Exist product count" type="number">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-8">
+                              <button mat-raised-button (click)="addExistProduct(quantity.value);quantity.value=''" class="btn btn-danger pull-right">Add to exist product</button>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  

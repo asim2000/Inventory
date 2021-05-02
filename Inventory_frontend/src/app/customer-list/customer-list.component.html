@@ -1,0 +1,125 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" *ngIf="customers.length>0">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title ">Customer list</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                               Identity
+                                            </th>
+                                            <th>
+                                                First Name
+                                            </th>
+                                            <th>
+                                                Last Name
+                                            </th>
+                                            <th>
+                                                Phone
+                                            </th>
+                                            <th>
+                                               Address
+                                            </th>
+                                            <th>
+                                                Email
+                                            </th>
+                                            <th>
+                                               Action
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let customer of customers">
+                                                <td>
+                                                    {{customer.identityNumber}}
+                                                </td>
+                                                <td>
+                                                    {{customer.firstName}}
+                                                </td>
+                                                <td>
+                                                    {{customer.lastName}}
+                                                </td>
+                                                <td>
+                                                    {{customer.phone}}
+                                                </td>
+                                                <td>
+                                                    {{customer.address}}
+                                                </td>
+                                                <td>
+                                                    {{customer.email}}
+                                                </td>
+                                                <td _ngcontent-csb-c104="" class="td-actions text-right">
+                                                    <button _ngcontent-csb-c104="" mat-raised-button="" (click)="setCurrentCustomer(customer)" type="button" mattooltip="Edit Task" class="mat-focus-indicator mat-tooltip-trigger btn btn-primary btn-link btn-sm btn-just-icon mat-raised-button mat-button-base" ng-reflect-message="Edit Task" aria-describedby="cdk-describedby-message-0" cdk-describedby-host="" ng-reflect-position="above">
+                                                        <span class="mat-button-wrapper">
+                                                            <i _ngcontent-csb-c104="" class="material-icons">edit</i></span>
+                                                            <span matripple="" class="mat-ripple mat-button-ripple" ng-reflect-disabled="false" ng-reflect-centered="false" ng-reflect-trigger="[object HTMLButtonElement]"></span>
+                                                            <span class="mat-button-focus-overlay"></span>
+                                                        </button>
+            
+                                                        <button _ngcontent-csb-c104="" mat-raised-button="" (click)="deleteCustomer(customer)" type="button" mattooltip="Remove" class="mat-focus-indicator mat-tooltip-trigger btn btn-danger btn-link btn-sm btn-just-icon mat-raised-button mat-button-base" ng-reflect-message="Remove" aria-describedby="cdk-describedby-message-1" cdk-describedby-host="" ng-reflect-position="above"><span class="mat-button-wrapper">
+                                                            <i _ngcontent-csb-c104="" class="material-icons">close</i>
+                                                        </span>
+                                                        <span matripple="" class="mat-ripple mat-button-ripple" ng-reflect-disabled="false" ng-reflect-centered="false" ng-reflect-trigger="[object HTMLButtonElement]">
+            
+                                                        </span>
+                                                        <span class="mat-button-focus-overlay"></span>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="currentCustomer!=null">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title">Create Product</h4>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <mat-form-field class="example-full-width">
+                                        <input name="identity" [(ngModel)]="currentCustomer.identityNumber" matInput placeholder="Identity"/>
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="currentCustomer.firstName" name="firstName" matInput placeholder="First name"/>
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="currentCustomer.lastName" name="lastName" matInput placeholder="Last name" type="text"/>
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="currentCustomer.phone" name="phone" matInput placeholder="Phone" type="text"/>
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="currentCustomer.address" name="address" matInput placeholder="Address" type="text"/>
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="currentCustomer.email" name="email" matInput placeholder="Email" type="text"/>
+                                      </mat-form-field>
+                                      <button mat-raised-button (click)="currentCustomer=null;" class="btn btn-danger pull-right">Cancel</button>
+                                    <button mat-raised-button (click)="editCustomer();" class="btn btn-primary pull-right">Save Changes</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="customers.length==0">
+            <div class="col-12">
+                <div class="alert alert-danger">Not exist Customer</div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

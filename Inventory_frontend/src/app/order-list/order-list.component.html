@@ -1,0 +1,87 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Order list</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Identity number
+                                     </th>
+                                     <th>
+                                        FirstName
+                                     </th>
+                                     <th>
+                                       LastName
+                                     </th>
+                                     <th>
+                                        Phone
+                                      </th>
+                                    <th>
+                                       Barkod number
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Category
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
+                                    <th>
+                                        Sale price
+                                    </th>
+                                    <th>
+                                        Total
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let order of orders">
+                                        <td>
+                                            {{order.customer.identityNumber}}
+                                        </td>
+                                        <td>
+                                            {{order.customer.firstName}}
+                                        </td>
+                                        <td>
+                                            {{order.customer.lastName}}
+                                        </td>
+                                        <td>
+                                            {{order.customer.phone}}
+                                        </td>
+                                        <td>
+                                            {{order.product.barkod}}  
+                                        </td>
+                                        <td>
+                                            {{order.product.name}}
+                                        </td>
+                                        <td>
+                                            {{order.product.category.name}}
+                                        </td>
+                                        <td>
+                                            {{order.quantity}}
+                                        </td>
+                                        <td>
+                                            {{order.price}}
+                                        </td>
+                                        <td>
+                                            {{order.total}}
+                                        </td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

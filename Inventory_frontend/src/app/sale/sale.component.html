@@ -1,0 +1,123 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title">Product</h4>
+                            </div>
+                            <div class="card-body">
+                                    <mat-form-field class="example-full-width">
+                                        <input #barkod name="barkod" [(ngModel)]="product.barkod" matInput (keyup)="getProduct(barkod.value)" placeholder="Barkod number">
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input name="name" [(ngModel)]="product.name" matInput placeholder="Product name">
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input #quantity name="quantity" [(ngModel)]="product.quantity" value="1"  matInput placeholder="Quantity" type="number">
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input name="price" [(ngModel)]="product.salePrice" matInput placeholder="Price" type="number">
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input name="total" [(ngModel)]="product.quantity*product.salePrice" matInput placeholder="Total" type="number">
+                                      </mat-form-field>
+          
+                                      <button mat-raised-button (click)="addToCart()" class="btn btn-danger pull-right">Add to Cart</button>
+                                    <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title">Customer</h4>
+                            </div>
+                            <div class="card-body">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput  #identity [(ngModel)]="customer.identityNumber" name="identity" (keyup)="getCustomer(identity.value)" placeholder="Identity number">
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput [(ngModel)]="customer.firstName" name="firstName" placeholder="First name" type="text">
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput [(ngModel)]="customer.lastName" name="lastName" placeholder="Last name" type="text">
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput [(ngModel)]="customer.phone" name="phone" placeholder="Phone" type="text">
+                                      </mat-form-field>
+                                    <button mat-raised-button (click)="sell()" class="btn btn-danger pull-right">Sell</button>
+                                    <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Cart</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                       Barkod number
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    <th>
+                                       Total
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let cart of carts">
+                                        <td>
+                                            {{cart.barkod}}
+                                        </td>
+                                        <td>
+                                            {{cart.name}}
+                                        </td>
+                                        <td>
+                                            {{cart.quantity}}
+                                        </td>
+                                        <td>
+                                            {{cart.salePrice}}  
+                                        </td>
+                                        <td>
+                                            {{cart.salePrice*cart.quantity}}
+                                        </td>
+                                        <td>
+                                            <button _ngcontent-csb-c104="" mat-raised-button="" (click)="deleteCart(cart.id)" type="button" mattooltip="Remove" class="mat-focus-indicator mat-tooltip-trigger btn btn-danger btn-link btn-sm btn-just-icon mat-raised-button mat-button-base" ng-reflect-message="Remove" aria-describedby="cdk-describedby-message-1" cdk-describedby-host="" ng-reflect-position="above"><span class="mat-button-wrapper">
+                                                <i _ngcontent-csb-c104="" class="material-icons">close</i>
+                                            </span>
+                                            <span matripple="" class="mat-ripple mat-button-ripple" ng-reflect-disabled="false" ng-reflect-centered="false" ng-reflect-trigger="[object HTMLButtonElement]">
+
+                                            </span>
+                                            <span class="mat-button-focus-overlay"></span>
+                                        </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

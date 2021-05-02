@@ -1,0 +1,9 @@
+C:\Users\ASUS-PC\source\repos\TemplateBackend\Core\bin\Debug\netstandard2.0\Core.deps.json
+C:\Users\ASUS-PC\source\repos\TemplateBackend\Core\bin\Debug\netstandard2.0\Core.dll
+C:\Users\ASUS-PC\source\repos\TemplateBackend\Core\bin\Debug\netstandard2.0\Core.pdb
+C:\Users\ASUS-PC\source\repos\TemplateBackend\Core\obj\Debug\netstandard2.0\Core.csprojAssemblyReference.cache
+C:\Users\ASUS-PC\source\repos\TemplateBackend\Core\obj\Debug\netstandard2.0\Core.AssemblyInfoInputs.cache
+C:\Users\ASUS-PC\source\repos\TemplateBackend\Core\obj\Debug\netstandard2.0\Core.AssemblyInfo.cs
+C:\Users\ASUS-PC\source\repos\TemplateBackend\Core\obj\Debug\netstandard2.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\ASUS-PC\source\repos\TemplateBackend\Core\obj\Debug\netstandard2.0\Core.dll
+C:\Users\ASUS-PC\source\repos\TemplateBackend\Core\obj\Debug\netstandard2.0\Core.pdb

@@ -1,0 +1,118 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" *ngIf="products.length>0">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title ">Simple Table</h4>
+                                <p class="card-category"> Here is a subtitle for this table</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Barkod
+                                            </th>
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>
+                                                Category
+                                            </th>
+                                            <th>
+                                                Quantity
+                                            </th>
+                                            <th>
+                                                Purchase Price
+                                            </th>
+                                            <th>
+                                              Sale Price
+                                          </th>
+                                          <th>
+                                            Action
+                                        </th>
+                                        </thead>
+                                        <tbody>
+                                           <tr *ngFor="let product of products">
+                                            <td>{{product.barkod}}</td>
+                                            <td>{{product.name}}</td>
+                                            <td>{{product.category ? product.category.name : ""}}</td>
+                                            <td>{{product.quantity}}</td>
+                                            <td>{{product.purchasePrice}}</td>
+                                            <td>{{product.salePrice}}</td>
+                                            <td _ngcontent-csb-c104="" class="td-actions text-right">
+                                                <button _ngcontent-csb-c104="" mat-raised-button="" (click)="setCurrentProduct(product)" type="button" mattooltip="Edit Task" class="mat-focus-indicator mat-tooltip-trigger btn btn-primary btn-link btn-sm btn-just-icon mat-raised-button mat-button-base" ng-reflect-message="Edit Task" aria-describedby="cdk-describedby-message-0" cdk-describedby-host="" ng-reflect-position="above">
+                                                    <span class="mat-button-wrapper">
+                                                        <i _ngcontent-csb-c104="" class="material-icons">edit</i></span>
+                                                        <span matripple="" class="mat-ripple mat-button-ripple" ng-reflect-disabled="false" ng-reflect-centered="false" ng-reflect-trigger="[object HTMLButtonElement]"></span>
+                                                        <span class="mat-button-focus-overlay"></span>
+                                                    </button>
+        
+                                                    <button _ngcontent-csb-c104="" mat-raised-button="" (click)="deleteProduct(product)" type="button" mattooltip="Remove" class="mat-focus-indicator mat-tooltip-trigger btn btn-danger btn-link btn-sm btn-just-icon mat-raised-button mat-button-base" ng-reflect-message="Remove" aria-describedby="cdk-describedby-message-1" cdk-describedby-host="" ng-reflect-position="above"><span class="mat-button-wrapper">
+                                                        <i _ngcontent-csb-c104="" class="material-icons">close</i>
+                                                    </span>
+                                                    <span matripple="" class="mat-ripple mat-button-ripple" ng-reflect-disabled="false" ng-reflect-centered="false" ng-reflect-trigger="[object HTMLButtonElement]">
+        
+                                                    </span>
+                                                    <span class="mat-button-focus-overlay"></span>
+                                                </button>
+                                            </td>
+                                           </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="currentProduct!=null">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title">Create Product</h4>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <mat-form-field class="example-full-width">
+                                        <input name="barkod" [(ngModel)]="currentProduct.barkod" matInput placeholder="Barkod number"/>
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="currentProduct.name" name="name" matInput placeholder="Product name"/>
+                                      </mat-form-field>
+                                      <mat-form-field>
+                                          <mat-select name="category" [(ngModel)]="currentProduct.categoryId" placeholder="category">
+                                             <mat-option [value]="category.id" *ngFor="let category of categories">
+                                                {{category.name}}
+                                             </mat-option>
+                                          </mat-select>
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="currentProduct.quantity" name="quantity" matInput placeholder="Quantity" type="number"/>
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="currentProduct.purchasePrice" name="purchasePrice" matInput placeholder="Purchase price" type="number"/>
+                                      </mat-form-field>
+                                      <mat-form-field class="example-full-width">
+                                        <input [(ngModel)]="currentProduct.salePrice" name="salePrice" matInput placeholder="Sale price" type="number"/>
+                                      </mat-form-field>
+                                      <button mat-raised-button (click)="currentProduct=null;getProducts()" class="btn btn-danger pull-right">Cancel</button>
+                                    <button mat-raised-button (click)="editProduct()" class="btn btn-primary pull-right">Save Changes</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="products.length==0">
+            <div class="col-md-12">
+                <div class="alert alert-danger">No exist Product</div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

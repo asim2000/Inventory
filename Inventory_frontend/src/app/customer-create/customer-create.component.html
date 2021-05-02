@@ -1,0 +1,39 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Create Customer</h4>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <mat-form-field class="example-full-width">
+                                <input #identity name="identityNumber" [(ngModel)]="customer.identityNumber" matInput placeholder="Identity number">
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                <input #firstName name="firstName" [(ngModel)]="customer.firstName" matInput placeholder="First name" type="text">
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                <input #lastName name="lastName" [(ngModel)]="customer.lastName" matInput placeholder="Last name" type="text">
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                <input #phone name="phone" matInput [(ngModel)]="customer.phone" placeholder="Phone" type="text">
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                <input #address name="address" matInput [(ngModel)]="customer.address" placeholder="Address" type="text">
+                              </mat-form-field>
+                              <mat-form-field class="example-full-width">
+                                <input #email name="email" matInput [(ngModel)]="customer.email" placeholder="Email" type="text">
+                              </mat-form-field>
+                            <button mat-raised-button (click)="createCustomer()" class="btn btn-danger pull-right">Create Customer</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  
